@@ -30,7 +30,7 @@ public class MapsActivity extends FragmentActivity {
     private GoogleMap mMap;
     EditText loc;
     String locn;// Might be null if Google Play services APK is not available.
-    LatLng latLng;
+    LatLng latLng=new LatLng(0,0);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,7 +84,7 @@ public class MapsActivity extends FragmentActivity {
             params.put("SO2", "SS");
             params.put("RH", "SF");
 
-            AsyncHttpClient client = new AsyncHttpClient();
+            AsyncHttpClient client = new AsyncHttpClient();//replace the url with that of your dtabase
             client.post("http://192.168.99.14/db/register.php", params, new AsyncHttpResponseHandler() {
                 @Override
                 public void onStart() {
